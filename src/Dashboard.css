@@ -1,0 +1,837 @@
+:root {
+    --dashboard-bg: #f5f6fa; 
+    --sidebar-bg: #ffffff;
+    --sidebar-border: #e0e0e0;
+    --text-gray-dark: #374151; 
+    --text-gray-medium: #6b7280; 
+    --text-gray-light: #9ca3af; 
+    --active-item-bg: #e5f1ff; 
+    --card-shadow: rgba(0, 0, 0, 0.05); 
+    --card-border: #e2e8f0; 
+
+    --liqtrade-blue: #1A4F8A;
+    --liqtrade-green-dark: #28a745;
+    --liqtrade-orange: #f39c12; 
+    --segment-color: #1a4f8a;
+    --risk-green: #28a745; 
+    --risk-yellow: #ffc107;
+    --risk-red: #dc3545; 
+  
+    --light-green-bg: #e0f8e7; 
+    --light-blue-bg: #e6f7ff; 
+    --light-orange-bg: #fff0e0; 
+    --status-green: #2ecc71; 
+    --status-blue: #3498db;  
+    --status-orange: #f39c12;
+    --active-tab-green-bg: #28a745; 
+}
+
+.dashboard-page-container {
+    display: flex;
+    height: calc(100vh - var(--header-height, 0px) - var(--top-bar-height, 0px));
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+}
+.dashboard-sidebar {
+    width: 200px;
+    background-color: var(--sidebar-bg);
+    padding: 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-right: 1px solid var(--sidebar-border);
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.03);
+}
+
+.sidebar-logo-wrapper {
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidebar-logo {
+    height: 35px;
+    object-fit: contain;
+}
+
+.sidebar-nav,
+.sidebar-bottom-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.sidebar-bottom-nav {
+    margin-top: auto;
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    color: var(--text-gray-medium);
+    font-weight: 200;
+    transition: background-color 0.2s, color 0.2s;
+     font-size: 55%;
+    transform: translateY(-250%);
+   
+}
+
+.nav-item:hover {
+    background-color: var(--active-item-bg);
+    color: var(--liqtrade-blue);
+}
+
+.nav-item.active {
+    background-color: var(--active-item-bg);
+    color: var(--liqtrade-blue);
+    font-weight: 600;
+}
+
+.nav-item i {
+    margin-right: 0.75rem;
+    font-size: 1.1rem;
+    width: 20px;
+    text-align: center;
+}
+
+.sidebar-user-profile {
+    display: flex;
+    align-items: center;
+    padding-top: 1.5rem;
+    border-top: none;
+    margin-top: 1.5rem;
+     font-size: 55%;
+    transform: translateX(-5%);
+    transform: translateY(-0,5%);
+}
+
+.profile-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 0.75rem;
+    border: 2px solid var(--liqtrade-blue);
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.8rem;
+}
+
+.profile-name {
+    font-weight: 600;
+    color: var(--text-gray-dark);
+     font-size: 10px;
+}
+
+.profile-status {
+    color: var(--text-gray-medium);
+    font-size: 6px;
+}
+
+
+.status-valid {
+    color: var(--liqtrade-green-dark);
+    font-weight: 600;
+    font-size: 6px;
+}
+.dashboard-main-content {
+    flex-grow: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.dashboard-main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.main-header-greeting {
+    font-size: 2rem;
+    color: var(--text-gray-dark);
+    font-weight: 700;
+    transform: translateY(-80%);
+}
+
+.main-header-user-info {
+    display: flex;
+    align-items: center;
+    border-left: none; 
+}
+
+.user-avatar-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--liqtrade-blue);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transform: translateY(-70%);
+}
+
+.user-avatar-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.dashboard-tabs-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 0.5rem; 
+    margin-bottom: 1rem;
+}
+
+.dashboard-tabs-left {
+    display: flex;
+    gap: 0.25rem;
+    transform: translateY(-200%);
+}
+
+.tab-button1 {
+    background-color: var(--active-tab-green-bg);
+    border: none; 
+    padding: 0.75rem 1.25rem;
+    font-size: 0.9rem;
+    height: 50px;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+    border-radius: 0.375rem;
+}
+.tab-button2 {
+    background-color: white; 
+    border: none;
+    padding: 0.75rem 1.25rem;
+    font-size: 0.9rem;
+    height: 50px;
+    font-weight: 600;
+    color: var(--text-gray-medium); 
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s;
+    border-radius: 0.375rem;
+}
+.tab-button.active {
+    color: var(--liqtrade-blue);
+    border-color: var(--liqtrade-blue); 
+    background-color: white; 
+    border-bottom: 2px solid var(--liqtrade-blue);
+}
+.btn-demander-financement {
+    padding: 0.75rem 1.5rem;
+    background-color: var(--liqtrade-blue);
+    color: #fff;
+    border: none;
+    border-radius: 0.375rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    font-size: 0.95rem;
+    transform: translateY(-150%);
+}
+
+.btn-demander-financement:hover {
+    background-color: #143a68;
+}
+
+section h2 {
+    font-size: 1.5rem;
+    color: var(--text-gray-dark);
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    transform: translateY(-40%);
+}
+.section-mon-compte {
+    transform: translateY(-50%);
+}
+.section-informations-financieres {
+    transform: translateY(-20%);
+}
+.mon-compte-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+
+}
+
+.account-card {
+    background-color: var(--sidebar-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 0.5rem;
+    padding: 1.25rem;
+    box-shadow: 0 1px 3px var(--card-shadow);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 120px;
+}
+
+.card-sub-title {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-gray-medium);
+    margin-bottom: 0.5rem;
+}
+
+.user-details-card .account-card-value {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-gray-dark);
+    margin-bottom: 0.25rem;
+}
+.user-details-card .account-card-detail {
+    font-size: 0.85rem;
+    color: var(--text-gray-medium);
+    line-height: 1.3;
+}
+
+.segment-card .segment-value {
+    color: var(--segment-color);
+    
+}
+
+.segment-value {
+    font-size: 2.2rem;
+    font-weight: 700;
+    display: flex;
+    justify-content: right;
+    margin-top: auto;
+}
+
+.risk-evaluation-card .risk-level {
+    font-weight: 600;
+    color: var(--risk-green);
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+}
+
+.risk-bar-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.risk-label-start, .risk-label-end {
+    font-weight: 600;
+    color: var(--text-gray-medium);
+    font-size: 0.85rem;
+}
+
+.risk-meter-bar {
+    flex-grow: 1;
+    height: 8px;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    display: flex;
+    overflow: hidden;
+}
+
+.risk-fill-section {
+    flex: 1;
+    height: 100%;
+}
+.risk-fill-section.green { background-color: var(--risk-green); }
+.risk-fill-section.yellow { background-color: var(--risk-yellow); }
+.risk-fill-section.red { background-color: var(--risk-red); }
+
+.score-card .score-value {
+    font-size: 1.8rem;
+    font-weight: 200;
+    color: var(--text-gray-dark);
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.last-transaction-card .transaction-amount {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--liqtrade-blue);
+    transform: translateY(-100%);
+}
+
+.last-transaction-card .transaction-amount i {
+    font-size: 1.8rem;
+    color: gold;
+}
+
+.financial-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    min-width:  10%;
+}
+
+.chart-container-wrapper {
+    background-color: var(--sidebar-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 0.5rem;
+    padding: 1.25rem;
+    box-shadow: 0 1px 3px var(--card-shadow);
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    min-width: 10px; 
+}
+
+.chart-period-btn {
+    background-color: transparent;
+    border: 1px solid var(--sidebar-border);
+    border-radius: 0.25rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+    color: var(--text-gray-medium);
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.chart-period-btn.active {
+    background-color: var(--liqtrade-blue);
+    color: #fff;
+    border-color: var(--liqtrade-blue);
+}
+
+.chart-period-btn:hover:not(.active) {
+    background-color: #f0f0f0;
+    border-color: #ccc;
+}
+
+.chart-placeholder {
+    display: flex;
+    height: 250px;
+    position: relative;
+    padding-left: 3.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.chart-y-axis {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 0.8rem;
+    color: var(--text-gray-medium);
+    padding-bottom: 1.5rem;
+}
+.chart-y-axis span {
+    height: calc(100% / 6);
+    display: flex;
+    align-items: center;
+}
+
+.chart-area {
+    flex-grow: 1;
+    position: relative;
+}
+
+.chart-value-indicator {
+    position: absolute;
+    top: -0.5rem;
+    left: -0.5rem;
+    background-color: var(--liqtrade-blue);
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    z-index: 10;
+}
+
+.chart-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+.chart-x-axis {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    font-size: 0.8rem;
+    color: var(--text-gray-medium);
+    transform: translateY(1.5rem);
+}
+
+.chart-legend {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    justify-content: center;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    color: var(--text-gray-medium);
+}
+
+.legend-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+    margin-right: 0.5rem;
+}
+
+.legend-color.green { background-color: var(--liqtrade-green-dark); }
+.legend-color.orange { background-color: var(--liqtrade-orange); }
+
+
+.financial-table-container {
+    background-color: var(--sidebar-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 0.5rem;
+    padding: 1.25rem;
+    box-shadow: 0 1px 3px var(--card-shadow);
+    overflow-x: auto;
+    flex: 1;
+    min-width: 350px;
+}
+
+.financial-table-container table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.financial-table-container th,
+.financial-table-container td {
+    text-align: left;
+    padding: 0.6rem 0.8rem;
+    color: var(--text-gray-medium);
+}
+.financial-table-container th {
+    background-color: transparent; 
+    font-weight: 600;
+    color: var(--liqtrade-blue); 
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    border-bottom: none;
+}
+.financial-table-container td {
+    border-bottom: 1px solid #eee;
+}
+.financial-table-container tbody tr:last-child td {
+    border-bottom: none;
+}
+.section-transactions {
+    margin-top: -5rem; 
+}
+
+.transactions-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+}
+.transaction-tab {
+    background-color: rgb(239, 238, 238);
+    border: none; 
+    padding: 0.75rem 1.25rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-gray-medium); 
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    border-radius: 0.375rem; 
+}
+
+.transaction-tab.active {
+    background-color: var(--active-tab-green-bg); 
+    color: white;
+    border: none; 
+}
+
+.transaction-tab:hover:not(.active) {
+    color: var(--liqtrade-blue); 
+}
+
+.transaction-status-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(1rem, 1fr)); 
+    gap: 1.5rem;
+    margin-bottom: 1rem; 
+    
+}
+
+.status-card {
+    background-color: var(--sidebar-bg); 
+    border: 1px solid var(--card-border);
+    border-radius: 0.5rem;
+    padding: 1.25rem;
+    box-shadow: 0 1px 3px var(--card-shadow);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    height: 65%; 
+}
+
+.status-card .card-sub-title {
+    font-size: 0.8rem;
+    color: var(--text-gray-medium);
+    margin-bottom: 0.5rem;
+    margin-top: 0%;
+}
+
+.status-card .status-metric {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-gray-dark); 
+    margin-bottom: 1rem;
+      margin-top: 0%;
+}
+
+.prêt-solicitee-card {
+    background-color: var(--active-tab-white);
+}
+.en-attente-card {
+    background-color: var(--active-tab-white);
+}
+.cloture-card {
+    background-color: white;
+    text-align:center;
+}
+
+.status-progress-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #e0e0e0; 
+    border-radius: 4px;
+    height: 8px;
+    width: 100%; 
+    position: relative;
+    overflow: hidden;
+    margin-top: auto; 
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: 4px;
+    position: absolute;
+    left: 0;
+}
+.progress-fill.green-fill {
+    background-color: var(--status-green);
+    width: 90%; 
+}
+.progress-fill.blue-fill {
+    background-color: var(--status-blue);
+    width: 60%; 
+}
+
+.check-icon, .spinner-icon {
+    font-size: 0.9rem;
+    z-index: 1; 
+    margin-left: auto;
+    margin-right: 0.2rem;
+    color: white; 
+}
+
+.status-text {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-gray-dark); 
+    margin-left: 0.5rem; 
+}
+
+.prêt-solicitee-card .status-text {
+    color: var(--status-green);
+}
+
+.montant-en-cours-card .metric-value {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--text-gray-dark);
+    margin-top: 0.5rem; 
+    margin-bottom: 0.25rem;
+}
+.montant-en-cours-card .sub-text {
+    font-size: 0.9rem;
+    color: var(--text-gray-medium);
+    margin-bottom: 1rem;
+}
+.status-validation {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--status-green);
+    font-weight: 600;
+    margin-top: auto; 
+}
+.status-validation .green-check {
+    font-size: 1rem;
+}
+.create-dossier-btn {
+    font-size: 0.5rem;
+    background-color: transparent;
+    margin-top: auto; 
+    text-align: center;
+    border: none;
+    text-decoration: underline;
+}
+
+.en-attente-card .status-metric {
+    color: var(--text-gray-dark); 
+}
+
+.donut-chart-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap; 
+}
+
+.donut-chart {
+    min-width: 100px; 
+    min-height: 100px;
+    transform: rotate(-90deg);
+    margin-left: -20%;
+    margin-top: -20%;
+}
+
+.donut-legend {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    font-size: 0em;
+    color: var(--text-gray-medium);
+    margin-top: -70%;
+      width: fit-content; 
+}
+.donut-legend .legend-item {
+    gap: 0.5rem;
+    font-size: 0.5rem;
+    margin-left: 50%;
+     white-space: nowrap;
+   
+}
+.donut-legend .legend-item i {
+    color: var(--liqtrade-green-dark); 
+    font-size: 0.6rem;
+}
+
+.small-text {
+    font-size: 0.5rem;
+    color: black;
+    line-height: 1.2;
+    margin-top: -20%;
+}
+.small-text .fa-download {
+    color: var(--liqtrade-green-dark);
+    margin-left: 0.5rem;
+    cursor: pointer;
+    margin-top: 20%;
+}
+
+.cloture-card .trophy-wrapper {
+    background-color: #f7f7f7; 
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5rem auto 1rem auto; 
+}
+.cloture-card .trophy-icon {
+    font-size: 2.5rem;
+    color: gol
+}
+.cloture-text {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--text-gray-dark);
+    margin-bottom: 0.25rem;
+    text-align: justify;
+}
+.cloture-date {
+    font-size: 10px;
+    text-align: justify;
+     margin-bottom: 6em;
+    color: var(--text-gray-medium);
+}
+
+.transactions-table-container {
+    background-color: var(--sidebar-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 0.5rem;
+    padding: 1.25rem;
+    box-shadow: 0 1px 3px var(--card-shadow);
+    overflow-x: auto;
+    margin-bottom: 1.5rem; 
+}
+
+.transactions-table-container table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.transactions-table-container th,
+.transactions-table-container td {
+    text-align: left;
+    padding: 0.8rem 1rem;
+    color: var(--text-gray-medium);
+}
+.transactions-table-container th {
+    background-color: transparent; 
+    font-weight: 600;
+    color: var(--liqtrade-blue); 
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    border-bottom: none; 
+}
+.transactions-table-container td {
+    border-bottom: 1px solid #eee;
+}
+.transactions-table-container tbody tr:last-child td {
+    border-bottom: none; 
+}
+
+
+.status-valid1{ 
+   color: #28a745;
+    font-weight: 600;
+}
+
+.status-pending { 
+    color: var(--status-blue);
+    font-weight: 600;
+}
