@@ -141,10 +141,9 @@
 .text-green {
   color: green;
 }
-
-.status-valid2 {
-    font-weight: 600;
-    font-size: 1rem;
+.spinner-icon {
+    color: black; 
+    font-size: 1.2em;
 }
 .dashboard-main-content {
     flex-grow: 1;
@@ -269,7 +268,7 @@ section h2 {
 }
 
 .card-sub-title {
-    font-size: 0.85rem;
+    font-size: 0.85*rem;
     font-weight: 500;
     color: var(--text-gray-medium);
     margin-bottom: 0.5rem;
@@ -288,10 +287,10 @@ section h2 {
     opacity: 0.8;
     color: var(--text-gray-medium);
 }
-.segment-card .segment-value {
+.segment-value {
     color: var(--segment-color);
-    font-size: 2.2rem;
-    font-weight: 700;
+    font-size: 2rem;
+    font-weight: 600;
     display: flex;
     justify-content: flex-end;
     margin-top: auto;
@@ -431,6 +430,7 @@ section h2 {
 
 .legend-color.green { background-color: var(--liqtrade-green-dark); }
 .legend-color.orange { background-color: var(--liqtrade-orange); }
+.legend-color.blue { background-color: var(--liqtrade-blue); }
 
 
 .financial-table-container {
@@ -530,11 +530,9 @@ section h2 {
     margin-top: 0;
 }
 .status-card h6.card-sub-title {
-    font-size: 1.1rem;
-    color: var(--text-gray-dark);
-    font-weight: 600;
+    font-size: 13px;
     margin-top: 0;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0rem;
 }
 
 .status-card .status-metric {
@@ -547,50 +545,74 @@ section h2 {
 .status-progress-bar {
     display: flex;
     align-items: center;
-    background-color: #e0e0e0;
     border-radius: 4px;
     height: 8px;
     width: 100%;
     position: relative;
-    overflow: hidden;
     margin-top: 0.5rem;
     margin-bottom: 1rem;
+    overflow: visible;
 }
-
+.status-text-valid {
+    background-color: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--active-tab-green-bg);
+    margin-left:8rem;
+    left: 30px;
+    top: 10%;
+    z-index: 10;
+    position: relative;
+    top: -500%;
+}
 .progress-fill {
     height: 100%;
     border-radius: 4px;
     position: absolute;
     left: 0;
+    z-index: 0;
+    top: -150%;
 }
 .progress-fill.green-fill {
     background-color: var(--status-green);
-    width: 90%;
+    width: 100%;
 }
-.progress-fill.blue-fill {
-    background-color: var(--status-blue);
-    width: 60%;
+.progress-fill.yellow-fill {
+    background-color: var(--status-green);
+    width: 100%;
 }
-.check-icon, .spinner-icon {
+.check-icon-1 {
     font-size: 0.9rem;
     z-index: 2;
-    color: green;
     text-align: right;
-}
-.spinner-icon {
+    z-index: 2;
+    position: relative;
+    top: -10%;
     color: var(--liqtrade-blue-light);
+}
+.check-icon {
+    font-size: 0.9rem;
+    z-index: 2;
+    text-align: right;
+    z-index: 2;
+    position: relative;
+    top: -10%;
+    color: var(--active-tab-green-bg);
 }
 
 .status-text {
     font-size: 0.85rem;
     font-weight: 600;
-    color: var(--text-gray-dark);
-    margin-left: 0.5rem;
+    color: var(--liqtrade-blue);
+    margin-left:8rem;
     left: 5px;
-    z-index: 2;
+    top: 10%;
+    z-index: 10;
+    position: relative;
+    top: -550%;
 }
 
-.prêt-solicitee-card .status-text {
+.prêt-solicitee-card {
     color: var(--status-green);
 }
 .montant-en-cours-card .metric-value {
@@ -731,23 +753,20 @@ section h2 {
 .transactions-table-container th {
     background-color: transparent;
     font-weight: 600;
-    color: var(--liqtrade-blue);
     text-transform: uppercase;
     font-size: 0.8rem;
-    border-bottom: 1px solid #eee;
-}
-.transactions-table-container td {
-    border-bottom: 1px solid #eee;
 }
 .transactions-table-container tbody tr:last-child td {
     border-bottom: none;
 }
-
-.status-valid1 {
+.status-valid {
     color: #28a745;
     font-weight: 600;
 }
-
+.status-valid1{
+    font-weight: 600;
+    color: #28a745 !important;
+}
 .status-pending {
     color: var(--status-blue);
     font-weight: 600;
