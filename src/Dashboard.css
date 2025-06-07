@@ -138,8 +138,11 @@
     color: var(--text-gray-medium);
     font-size: 0.6rem;
 }
+.text-green {
+  color: green;
+}
 
-.status-valid1 {
+.status-valid2 {
     font-weight: 600;
     font-size: 1rem;
 }
