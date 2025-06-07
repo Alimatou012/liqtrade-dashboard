@@ -27,7 +27,7 @@ function App() {
           <a href="#">Simulateur</a>
           <a href="#">Contact</a>
           <a href="#">Publications</a>
-          <a href="#" className="btn-green-light">S’inscrire</a>
+          <a href="#" className="btn-green-light-inscrire">S’inscrire</a>
           <a href="#" className="btn-green-dark">Se connecter </a>
         </div>
       </header>
